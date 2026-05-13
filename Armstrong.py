@@ -1,57 +1,61 @@
-#Program to check if a number is an Armstrong number or not and to find all the armstrong number in a given range
-#TriTea@blackpharaoh
+# Program to check Armstrong numbers and also print all Armstrong numbers in a given range.
+# TriTea@blackpharaoh
 
 def isarmstrong(n):
     s = 0
-    temp= n
-    while temp >0:
-        r= temp % 10
-        s += r*r*r
+    temp = n
+    p = len(str(n)) 
+    while temp > 0:
+        r = temp % 10
+        s += r ** p
         temp //= 10
-    if s == n:
-        print(f"{n} is an Armstrong number")
-    else:
-        print(f"{n} is not an Armstrong number")
+    
+    # Return True if it's an Armstrong number, False otherwise
+    return s == n
 
-def armstrongrange(f,l):
-    for i in range(f,l+1):
-        s = 0
-        temp= i
-        while temp >0:
-            r= temp % 10
-            s += r*r*r
-            temp //= 10
-        if s == i:
-            print(f"{i},  ")  
+def armstrongrange(f, l):
+    for i in range(f, l + 1):
+        # Call the logic function here
+        if isarmstrong(i):
+            print(f"{i}", end=", ")
+    print() 
 
 def main():
-    print("Enter your choice please: \n 1. Verify a Number \n 2.Find a given range.")
-    ch = int(input())
     ct = 1
     while ct == 1:
-     if ch == 1:
-         print("Enter the number to verify: ")
-         num = int(input())
-         isarmstrong(num)
-         print("Press 1 to continue or 0 to exit:")
-         ct = int(input())
-     elif ch == 2:
-         print("Enter the range to find armstrong numbers: ")
-         f = int(input("From: "))
-         l = int(input("To: "))
-         if f>l:
-             print("Invalid range")
-             print("Press 1 to continue or 0 to exit:")
-             ct = int(input())
-             continue
-         armstrongrange(f,l)
-         print("Press 1 to continue or 0 to exit:")
-         ct = int(input())
-     else:
-         print("Invalid choice")
-         print("Press 1 to continue or 0 to exit:")
-         ct = int(input())
+        print("\nEnter your choice please: \n 1. Verify a Number \n 2. Find a given range. \n 3. Exit")
+        ch = int(input())
+        
+        if ch == 1:
+            print("Enter the number to verify: ")
+            num = int(input())
+            # Use the return value to decide what to print
+            if isarmstrong(num):
+                print(f"{num} is an Armstrong number")
+            else:
+                print(f"{num} is not an Armstrong number")
+            
+            print("Press 1 to continue or 0 to exit:")
+            ct = int(input())
+            
+        elif ch == 2:
+            print("Enter the range to find armstrong numbers: ")
+            f = int(input("From: "))
+            l = int(input("To: "))
+            if f > l:
+                print("Invalid range")
+            else:
+                armstrongrange(f, l)
+            
+            print("Press 1 to continue or 0 to exit:")
+            ct = int(input())
+            
+        elif ch == 3:
+            ct = 0
+        else:
+            print("Invalid choice")
+            print("Press 1 to continue or 0 to exit:")
+            ct = int(input())
 
 if __name__ == "__main__":
     main()
-    
