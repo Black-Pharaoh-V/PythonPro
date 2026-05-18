@@ -13,5 +13,6 @@ def pascal(n):
 def main():
     n = int(input("Enter the number of lines for Pascal's Triangle: "))
     pascal(n)
-    if __name__ == "__main__":
-        main()
+
+if __name__ == "__main__":
+      main()

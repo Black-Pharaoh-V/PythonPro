@@ -42,6 +42,6 @@ def main():
          print("Do you want to continue? (Press 1 for Yes, 0 for No)")
          choice = int(input()) # To check if the user wants to continue or not  
 
-     if __name__ == "__main__":
-         main()
+if __name__ == "__main__":
+     main()
 
